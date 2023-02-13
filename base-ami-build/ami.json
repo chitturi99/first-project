@@ -1,10 +1,10 @@
 {
     "variables": {
-      "aws_access_key": "",
-      "aws_secret_key": "",
-      "source_ami": "",
+      "aws_access_key": "AKIARPQ5NTV7E6SDSDM6",
+      "aws_secret_key": "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",
+      "source_ami": "ami-0aa7d40eeae50c9a9",
       "date_stamp": "",
-      "name": ""
+      "name": "Ami_creation"
     },
     "builders": [{
       "type": "amazon-ebs",
@@ -18,15 +18,15 @@
       "ssh_pty" : true,
       "access_key": "{{user `aws_access_key`}}",
       "secret_key": "{{user `aws_secret_key`}}",
-      "vpc_id": "",
-      "subnet_id": "",
-      "region": "",
+      "vpc_id": "vpc-0df8b44b53ae39c91",
+      "subnet_id": "subnet-0cf2d7ca04d0b5ca1",
+      "region": "us-east-1",
       "source_ami": "{{user `source_ami`}}",
-      "instance_type": "t2.small",
-      "security_group_id": "",
+      "instance_type": "t2.micro",
+      "security_group_id": "sg-0b2474ffd106bb238",
       "ami_name": "{{user `name`}}_{{user `date_stamp`}}",
-      "ami_regions" : "",
-      "ssh_username": "",
+      "ami_regions" : "us-east-1",
+      "ssh_username": "ec2-user",
       "run_tags": {
           "ChargeCode": "name",
           "Product": "infracoe.packer",
@@ -37,8 +37,9 @@
       { "type": "shell",
         "inline": [
           "sudo yum upgrade kernel -y",
-          "sudo yum install -y yum-utils”,
-          "sudo yum install git -y"
+          "sudo yum install -y yum-utils",
+          "sudo yum install -y git"
+
       ]
    },
   {  "type": "shell",
